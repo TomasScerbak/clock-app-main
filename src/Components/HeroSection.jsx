@@ -11,6 +11,8 @@ const HeroSection = () => {
   const [currentTime, setCurrentTime] = useState();
   const [timeZoneCode, setTimeZoneCode] = useState();
   const [userLocation, setUserLocaiton] = useState();
+  const [motivation, setMotivation] = useState();
+  const [author, setAuthor] = useState();
 
   useEffect(
     () =>
@@ -43,6 +45,8 @@ const HeroSection = () => {
       async function () {
         const { data } = await axios.get(randomQuoteAPI);
         console.log(data.content, data.author);
+        setMotivation(data.content);
+        setAuthor(data.author);
       },
     []
   );
@@ -52,6 +56,8 @@ const HeroSection = () => {
       <h1>{currentTime}</h1>
       <div>{timeZoneCode}</div>
       <div>{userLocation}</div>
+      <div>{motivation}</div>
+      <div>{author}</div>
     </React.Fragment>
   );
 };
