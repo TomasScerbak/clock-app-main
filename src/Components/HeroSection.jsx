@@ -23,7 +23,9 @@ const HeroSection = () => {
         const hours = date.getHours();
         const minutes = date.getMinutes();
 
-        setCurrentTime(`${hours} : ${minutes}`);
+        setCurrentTime(
+          `${hours} : ${minutes < 10 ? `${"0" + minutes}` : minutes}`
+        );
         setTimeZoneCode(timeZoneCode);
       },
     []
