@@ -1,10 +1,10 @@
 import "./App.css";
-import HeroSection from "./Components/HeroSection";
+import MainSection from "./Components/MainSection";
 
 function App() {
   return (
     <div className="App">
-      <HeroSection />
+      <MainSection />
     </div>
   );
 }
