@@ -1,6 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
+import ImageNight from "../Assets/desktop/bg-image-nighttime.jpg";
+import ImageDay from "../Assets/desktop/bg-image-daytime.jpg";
+
 const API_KEY_VALUE = process.env.REACT_APP_API_KEY_VALUE.substring(1, 41);
 
 const worldTimeAPI = "http://worldtimeapi.org/api/ip";
@@ -23,19 +26,24 @@ const HeroSection = () => {
         const hours = date.getHours();
         const minutes = date.getMinutes();
 
+        if (hours > 12) {
+          document.body.style.backgroundImage = `url(${ImageNight})`;
+        } else {
+          document.body.style.backgroundImage = `url(${ImageDay})`;
+        }
+
         setCurrentTime(
           `${hours} : ${minutes < 10 ? `${"0" + minutes}` : minutes}`
         );
         setTimeZoneCode(timeZoneCode);
       },
-    [currentTime]
+    []
   );
 
   useEffect(
     () =>
       async function () {
         const { data } = await axios.get(ipGeologicalAPI);
-        console.log(data.data);
         const userLocation = data.data.timezone.id;
         setUserLocaiton(userLocation);
       },
@@ -46,7 +54,6 @@ const HeroSection = () => {
     () =>
       async function () {
         const { data } = await axios.get(randomQuoteAPI);
-        console.log(data.content, data.author);
         setQuote(data.content);
         setAuthor(data.author);
       },
@@ -55,11 +62,11 @@ const HeroSection = () => {
 
   return (
     <React.Fragment>
+      <div>{quote}</div>
+      <div>{author}</div>
       <h1>{currentTime}</h1>
       <div>{timeZoneCode}</div>
       <div>{userLocation}</div>
-      <div>{quote}</div>
-      <div>{author}</div>
     </React.Fragment>
   );
 };

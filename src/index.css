@@ -26,6 +26,9 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -47,6 +50,7 @@ h1 {
   font-weight: 700;
   font-size: 10rem;
   letter-spacing: -5px;
+  margin: 0;
 }
 h2 {
   font-weight: 700;
