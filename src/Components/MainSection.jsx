@@ -1,8 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
+import classes from "./MainSection.module.css";
+
 import ImageNight from "../Assets/desktop/bg-image-nighttime.jpg";
 import ImageDay from "../Assets/desktop/bg-image-daytime.jpg";
+import RefreshIcon from "../Assets/desktop/icon-refresh.svg";
 
 const API_KEY_VALUE = process.env.REACT_APP_API_KEY_VALUE.substring(1, 41);
 
@@ -28,11 +31,11 @@ const MainSection = () => {
 
         if (hours > 12) {
           document.body.style.backgroundImage = `url(${ImageNight})`;
-          document.querySelector(".daytime").innerHTML =
+          document.getElementById("daytime").innerHTML =
             "Good Evening It's Currently";
         } else {
           document.body.style.backgroundImage = `url(${ImageDay})`;
-          document.querySelector(".daytime").innerHTML =
+          document.getElementById("daytime").innerHTML =
             "Good Morning It's Currently";
         }
 
@@ -67,10 +70,11 @@ const MainSection = () => {
   return (
     <main>
       <section>
-        <div>{quote}</div>
-        <div>{author}</div>
-        <h2 className="daytime"></h2>
-        <h1>{currentTime}</h1>
+        <div className={classes.quote}>{quote}</div>
+        <img src={RefreshIcon} alt="refresh button" />
+        <div className={classes.author}>{author}</div>
+        <h3 id="daytime" className={classes.daytime}></h3>
+        <h1 className={classes["current-time"]}>{currentTime}</h1>
         <div>{timeZoneCode}</div>
         <div>{userLocation}</div>
       </section>
