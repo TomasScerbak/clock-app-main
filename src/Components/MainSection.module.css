@@ -1,12 +1,25 @@
 .daytime {
   color: white;
 }
+
 .quote {
   color: white;
 }
+
 .author {
   color: white;
 }
+
 .current-time {
   color: white;
+}
+
+.refresh-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  cursor: pointer;
+}
+
+.refresh-icon:active {
+  transform: rotate(50deg);
 }

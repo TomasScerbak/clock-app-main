@@ -67,13 +67,26 @@ const MainSection = () => {
     []
   );
 
+  const quoteChangeHandler = () => {
+    window.location.reload(true);
+  };
+
   return (
     <main>
       <section>
-        <div className={classes.quote}>{quote}</div>
-        <img src={RefreshIcon} alt="refresh button" />
+        <div>
+          <div className={classes.quote}>{quote}</div>
+          <img
+            onClick={quoteChangeHandler}
+            className={classes["refresh-icon"]}
+            src={RefreshIcon}
+            alt="refresh button"
+          />
+        </div>
         <div className={classes.author}>{author}</div>
-        <h3 id="daytime" className={classes.daytime}></h3>
+        <h3 id="daytime" className={classes.daytime}>
+          Good Morning It's Currently
+        </h3>
         <h1 className={classes["current-time"]}>{currentTime}</h1>
         <div>{timeZoneCode}</div>
         <div>{userLocation}</div>
