@@ -29,7 +29,7 @@ const MainSection = () => {
         const hours = date.getHours();
         const minutes = date.getMinutes();
 
-        if (hours > 12) {
+        if (hours > 18) {
           document.body.style.backgroundImage = `url(${ImageNight})`;
           document.getElementById("daytime").innerHTML =
             "Good Evening It's Currently";
@@ -74,22 +74,24 @@ const MainSection = () => {
   return (
     <main>
       <section>
-        <div>
-          <div className={classes.quote}>{quote}</div>
-          <img
-            onClick={quoteChangeHandler}
-            className={classes["refresh-icon"]}
-            src={RefreshIcon}
-            alt="refresh button"
-          />
+        <div className={classes.container}>
+          <div className={classes["quote-wrapper"]}>
+            <p className={classes.quote}>"{quote}"</p>
+            <img
+              onClick={quoteChangeHandler}
+              className={classes["refresh-icon"]}
+              src={RefreshIcon}
+              alt="refresh button"
+            />
+          </div>
+          <div className={classes.author}>{author}</div>
+          <h3 id="daytime" className={classes.daytime}>
+            Good Morning It's Currently
+          </h3>
+          <h1 className={classes["current-time"]}>{currentTime}</h1>
+          <div>{timeZoneCode}</div>
+          <div>{userLocation}</div>
         </div>
-        <div className={classes.author}>{author}</div>
-        <h3 id="daytime" className={classes.daytime}>
-          Good Morning It's Currently
-        </h3>
-        <h1 className={classes["current-time"]}>{currentTime}</h1>
-        <div>{timeZoneCode}</div>
-        <div>{userLocation}</div>
       </section>
     </main>
   );

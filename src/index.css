@@ -71,4 +71,23 @@ h4 {
 p {
   font-weight: 400;
   font-size: 1.2rem;
+  margin: 0;
+}
+/* Media Queries for Headings */
+@media screen and (min-width: 576px) {
+  p {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  p {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  p {
+    font-size: 2.5rem;
+  }
 }
