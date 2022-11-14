@@ -20,10 +20,6 @@
   margin: 0 2.5rem 22.7rem;
 }
 
-.current-time {
-  color: white;
-}
-
 .refresh-icon {
   width: 1.6rem;
   height: 1.6rem;
@@ -33,6 +29,47 @@
 
 .refresh-icon:active {
   transform: rotate(50deg);
+}
+
+.clock {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 2.5rem;
+}
+
+.clock-time {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  margin: 0 2.5rem;
+}
+
+.time-zone {
+  color: white;
+  font-weight: 300;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.daytime-image {
+  width: 2.3rem;
+  height: 2.3rem;
+  margin-right: 1.6rem;
+}
+
+.current-time {
+  color: white;
+  margin: 1.6rem 2rem 0 0;
+}
+
+.user-location {
+  color: white;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 2.8rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
 
 /* Media Queries for Quote Section */
