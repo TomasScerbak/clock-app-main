@@ -31,7 +31,6 @@ const MainSection = () => {
 
         /* Getting user innerWidth */
         const userWidth = window.innerWidth;
-        console.log(userWidth);
 
         if (hours > 18 && userWidth <= 375) {
           document.body.style.backgroundImage = `url(${ImageNight})`;
