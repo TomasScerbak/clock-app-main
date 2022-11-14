@@ -29,11 +29,21 @@ const MainSection = () => {
         const hours = date.getHours();
         const minutes = date.getMinutes();
 
-        if (hours > 18) {
+        /* Getting user innerWidth */
+        const userWidth = window.innerWidth;
+        console.log(userWidth);
+
+        if (hours > 18 && userWidth <= 375) {
+          document.body.style.backgroundImage = `url(${ImageNight})`;
+          document.getElementById("daytime").innerHTML = "Good Evening";
+        } else if (hours > 18 && userWidth > 375) {
           document.body.style.backgroundImage = `url(${ImageNight})`;
           document.getElementById("daytime").innerHTML =
             "Good Evening It's Currently";
-        } else {
+        } else if (hours < 18 && userWidth <= 375) {
+          document.body.style.backgroundImage = `url(${ImageDay})`;
+          document.getElementById("daytime").innerHTML = "Good Morning";
+        } else if (hours < 18 && userWidth > 375) {
           document.body.style.backgroundImage = `url(${ImageDay})`;
           document.getElementById("daytime").innerHTML =
             "Good Morning It's Currently";
