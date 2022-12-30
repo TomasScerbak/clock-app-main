@@ -29,14 +29,34 @@
   margin-left: 1rem;
 }
 
+@media screen and (min-width: 768px) {
+  .btn-up {
+    font-size: 1.6rem;
+    width: 14.6rem;
+    height: 5.6rem;
+  }
+
+  .arrow-up {
+    width: 4rem;
+    height: 4rem;
+    background-color: #303030;
+    color: white;
+    border-radius: 100%;
+    padding: 1rem;
+    margin-left: 1rem;
+  }
+}
+
 @media screen and (min-width: 992px) {
-  .btn-down {
+  .btn-up {
     margin-left: 40rem;
+    width: 14.6rem;
+    height: 5.6rem;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .btn-down {
+  .btn-up {
     margin-left: 95rem;
   }
 }

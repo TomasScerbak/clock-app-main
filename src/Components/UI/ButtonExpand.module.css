@@ -30,9 +30,29 @@
   margin-left: 1rem;
 }
 
+@media screen and (min-width: 768px) {
+  .btn-down {
+    font-size: 1.6rem;
+    width: 14.6rem;
+    height: 5.6rem;
+  }
+
+  .arrow-down {
+    width: 4rem;
+    height: 4rem;
+    background-color: #303030;
+    color: white;
+    border-radius: 100%;
+    padding: 1rem;
+    margin-left: 1rem;
+  }
+}
+
 @media screen and (min-width: 992px) {
   .btn-down {
     margin-left: 40rem;
+    width: 14.6rem;
+    height: 5.6rem;
   }
 }
 

@@ -25,7 +25,7 @@ const MainSection = () => {
   const [hour, setHour] = useState();
   const [quote, setQuote] = useState();
   const [author, setAuthor] = useState();
-  const [userWidth, setUserWidth] = useState(window.innerWidth > 576);
+  const [userWidth, setUserWidth] = useState(window.innerWidth);
 
   const updateMedia = () => {
     setUserWidth(window.innerWidth);
@@ -61,15 +61,15 @@ const MainSection = () => {
     []
   );
 
-  // useEffect(
-  //   () =>
-  //     async function () {
-  //       const { data } = await axios.get(ipGeologicalAPI);
-  //       const userLocation = data.data.timezone.id;
-  //       setUserLocaiton(userLocation);
-  //     },
-  //   []
-  // );
+  useEffect(
+    () =>
+      async function () {
+        const { data } = await axios.get(ipGeologicalAPI);
+        const userLocation = data.data.timezone.id;
+        setUserLocaiton(userLocation);
+      },
+    []
+  );
 
   useEffect(
     () =>
