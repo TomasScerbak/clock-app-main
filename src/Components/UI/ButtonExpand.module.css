@@ -29,3 +29,15 @@
   padding: 1rem;
   margin-left: 1rem;
 }
+
+@media screen and (min-width: 992px) {
+  .btn-down {
+    margin-left: 40rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .btn-down {
+    margin-left: 95rem;
+  }
+}
