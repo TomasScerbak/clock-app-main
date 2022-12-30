@@ -64,15 +64,15 @@ const MainSection = () => {
     []
   );
 
-  // useEffect(
-  //   () =>
-  //     async function () {
-  //       const { data } = await axios.get(ipGeologicalAPI);
-  //       const userLocation = data.data.timezone.id;
-  //       setUserLocaiton(userLocation);
-  //     },
-  //   []
-  // );
+  useEffect(
+    () =>
+      async function () {
+        const { data } = await axios.get(ipGeologicalAPI);
+        const userLocation = data.data.timezone.id;
+        setUserLocaiton(userLocation);
+      },
+    []
+  );
 
   useEffect(
     () =>
@@ -102,7 +102,7 @@ const MainSection = () => {
             />
           </div>
           <div className={classes.author}>{author}</div>
-          <div className={classes.clock}>
+          <div className={classes.greeting}>
             <img
               className={classes["daytime-image"]}
               src={hour < 18 ? Sun : Moon}
@@ -112,12 +112,14 @@ const MainSection = () => {
               Good Morning It's Currently
             </h3>
           </div>
-          <div className={classes["clock-time"]}>
+          <div className={classes["clock-time__wrapper"]}>
             <h1 className={classes["current-time"]}>{currentTime}</h1>
             <div className={classes["time-zone"]}>{timeZoneCode}</div>
           </div>
-          <div className={classes["user-location"]}>{userLocation}</div>
-          <ButtonExpand></ButtonExpand>
+          <div className={classes["user-location__wrapper"]}>
+            <div className={classes["user-location"]}>{userLocation}</div>
+            <ButtonExpand></ButtonExpand>
+          </div>
         </div>
       </section>
     </main>
