@@ -25,6 +25,16 @@ const MainSection = () => {
   const [hour, setHour] = useState();
   const [quote, setQuote] = useState();
   const [author, setAuthor] = useState();
+  const [userWidth, setUserWidth] = useState(window.innerWidth > 576);
+
+  const updateMedia = () => {
+    setUserWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateMedia);
+    return () => window.removeEventListener("resize", updateMedia);
+  });
 
   useEffect(
     () =>
@@ -35,23 +45,10 @@ const MainSection = () => {
         const hours = date.getHours();
         const minutes = date.getMinutes();
 
-        /* Getting user innerWidth */
-        const userWidth = window.innerWidth;
-
-        if (hours > 18 && userWidth <= 576) {
+        if (hours > 18) {
           document.body.style.backgroundImage = `url(${ImageNight})`;
-          document.getElementById("daytime").innerHTML = "Good Evening";
-        } else if (hours > 18 && userWidth > 576) {
-          document.body.style.backgroundImage = `url(${ImageNight})`;
-          document.getElementById("daytime").innerHTML =
-            "Good Evening It's Currently";
-        } else if (hours < 18 && userWidth <= 576) {
+        } else if (hours < 18) {
           document.body.style.backgroundImage = `url(${ImageDay})`;
-          document.getElementById("daytime").innerHTML = "Good Morning";
-        } else if (hours < 18 && userWidth > 576) {
-          document.body.style.backgroundImage = `url(${ImageDay})`;
-          document.getElementById("daytime").innerHTML =
-            "Good Morning It's Currently";
         }
 
         setCurrentTime(
@@ -64,15 +61,15 @@ const MainSection = () => {
     []
   );
 
-  useEffect(
-    () =>
-      async function () {
-        const { data } = await axios.get(ipGeologicalAPI);
-        const userLocation = data.data.timezone.id;
-        setUserLocaiton(userLocation);
-      },
-    []
-  );
+  // useEffect(
+  //   () =>
+  //     async function () {
+  //       const { data } = await axios.get(ipGeologicalAPI);
+  //       const userLocation = data.data.timezone.id;
+  //       setUserLocaiton(userLocation);
+  //     },
+  //   []
+  // );
 
   useEffect(
     () =>
@@ -109,7 +106,7 @@ const MainSection = () => {
               alt="#"
             />
             <h3 id="daytime" className={classes.daytime}>
-              Good Morning It's Currently
+              {userWidth > 576 ? "Good Morning I'ts currenlty" : "Good morning"}
             </h3>
           </div>
           <div className={classes["clock-time__wrapper"]}>
