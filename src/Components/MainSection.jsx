@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 import ButtonExpand from "./UI/ButtonExpand";
+import ButtonLess from "./UI/ButtonLess";
 
 import classes from "./MainSection.module.css";
 

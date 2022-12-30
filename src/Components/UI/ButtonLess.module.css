@@ -1,0 +1,30 @@
+.btn-up {
+  width: 11.5rem;
+  height: 3.9rem;
+  outline: none;
+  border: none;
+  border-radius: 28px;
+  cursor: pointer;
+  background-color: white;
+  font-family: var(--ff-inter);
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 3.75px;
+  text-transform: uppercase;
+  color: var(--black);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1.3rem 0.5rem 1.3rem 1.7rem;
+  margin: 0 0 4rem 2.6rem;
+}
+
+.arrow-up {
+  width: 3.2rem;
+  height: 3.2rem;
+  background-color: #303030;
+  color: white;
+  border-radius: 100%;
+  margin-left: 1rem;
+}
