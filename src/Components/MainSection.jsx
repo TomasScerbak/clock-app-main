@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
+import ButtonExpand from "./UI/ButtonExpand";
+
 import classes from "./MainSection.module.css";
 
 import ImageNight from "../Assets/desktop/bg-image-nighttime.jpg";
@@ -61,15 +63,15 @@ const MainSection = () => {
     []
   );
 
-  useEffect(
-    () =>
-      async function () {
-        const { data } = await axios.get(ipGeologicalAPI);
-        const userLocation = data.data.timezone.id;
-        setUserLocaiton(userLocation);
-      },
-    []
-  );
+  // useEffect(
+  //   () =>
+  //     async function () {
+  //       const { data } = await axios.get(ipGeologicalAPI);
+  //       const userLocation = data.data.timezone.id;
+  //       setUserLocaiton(userLocation);
+  //     },
+  //   []
+  // );
 
   useEffect(
     () =>
@@ -114,6 +116,7 @@ const MainSection = () => {
             <div className={classes["time-zone"]}>{timeZoneCode}</div>
           </div>
           <div className={classes["user-location"]}>{userLocation}</div>
+          <ButtonExpand></ButtonExpand>
         </div>
       </section>
     </main>
