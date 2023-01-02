@@ -51,6 +51,18 @@ const MainSection = () => {
           document.body.style.backgroundImage = `url(${ImageDay})`;
         }
 
+        if (userWidth < 576 && hours < 18) {
+          document.getElementById("daytime").innerHTML = "Good Morning";
+        } else if (userWidth > 576 && hours < 18) {
+          document.getElementById("daytime").innerHTML =
+            "Good Morning It's currently";
+        } else if (userWidth < 576 && hours > 18) {
+          document.getElementById("daytime").innerHTML = "Good evening";
+        } else if (userWidth > 576 && hours > 18) {
+          document.getElementById("daytime").innerHTML =
+            "Good evening It's currently";
+        }
+
         setCurrentTime(
           `${hours} : ${minutes < 10 ? `${"0" + minutes}` : minutes}`
         );
@@ -58,18 +70,18 @@ const MainSection = () => {
 
         setHour(hours);
       },
-    []
+    [userWidth, hour]
   );
 
-  useEffect(
-    () =>
-      async function () {
-        const { data } = await axios.get(ipGeologicalAPI);
-        const userLocation = data.data.timezone.id;
-        setUserLocaiton(userLocation);
-      },
-    []
-  );
+  // useEffect(
+  //   () =>
+  //     async function () {
+  //       const { data } = await axios.get(ipGeologicalAPI);
+  //       const userLocation = data.data.timezone.id;
+  //       setUserLocaiton(userLocation);
+  //     },
+  //   []
+  // );
 
   useEffect(
     () =>
@@ -106,7 +118,7 @@ const MainSection = () => {
               alt="#"
             />
             <h3 id="daytime" className={classes.daytime}>
-              {userWidth > 576 ? "Good Morning I'ts currenlty" : "Good morning"}
+              Good Morning
             </h3>
           </div>
           <div className={classes["clock-time__wrapper"]}>
