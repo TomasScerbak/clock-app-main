@@ -6,21 +6,21 @@ const FooterCard = () => {
   return (
     <section>
       <div className={classes.card}>
-        <div className="card-wrapper_one">
-          <div>current timezone</div>
-          <div>Europe / London</div>
+        <div className={classes["card-wrapper"]}>
+          <div className={classes.title}>current timezone</div>
+          <div className={classes.value}>Europe / London</div>
         </div>
-        <div className="card-wrapper_two">
-          <div>day of the year </div>
-          <div>295</div>
+        <div className={classes["card-wrapper"]}>
+          <div className={classes.title}>day of the year</div>
+          <div className={classes.value}>295</div>
         </div>
-        <div className="card-wrapper_two">
-          <div>day of the week </div>
-          <div>5</div>
+        <div className={classes["card-wrapper"]}>
+          <div className={classes.title}>day of the week</div>
+          <div className={classes.value}>5</div>
         </div>
-        <div className="card-wrapper_two">
-          <div>week number </div>
-          <div>42</div>
+        <div className={classes["card-wrapper"]}>
+          <div className={classes.title}>week number</div>
+          <div className={classes.value}>42</div>
         </div>
       </div>
     </section>

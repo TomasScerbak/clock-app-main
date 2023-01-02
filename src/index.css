@@ -28,7 +28,7 @@ body {
   padding: 0;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: bottom;
+  background-position: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -42,9 +42,9 @@ li {
   list-style: none;
 }
 /* Images */
-img {
+/* img {
   width: 100%;
-}
+} */
 /* Headings */
 h1 {
   font-weight: 700;
