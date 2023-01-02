@@ -102,8 +102,6 @@ const MainSection = (props) => {
 
   const isHiddenHandler = () => {
     setIsHidden((prev) => (!prev ? true : false));
-    console.log("clicked");
-    console.log(isHidden);
   };
 
   return (
