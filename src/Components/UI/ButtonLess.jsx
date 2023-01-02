@@ -4,9 +4,9 @@ import classes from "./ButtonLess.module.css";
 
 import ArrowUp from "../../Assets/desktop/icon-arrow-up.svg";
 
-const ButtonLess = () => {
+const ButtonLess = (props) => {
   return (
-    <button className={classes["btn-up"]} type="button">
+    <button {...props} className={classes["btn-up"]} type="button">
       Less
       <img className={classes["arrow-up"]} src={ArrowUp} alt="#" />
     </button>

@@ -3,9 +3,11 @@ import React, { useEffect, useState } from "react";
 
 import ButtonExpand from "./UI/ButtonExpand";
 import ButtonLess from "./UI/ButtonLess";
+import FooterCard from "./FooterCard";
 
 import classes from "./MainSection.module.css";
 
+// Images
 import ImageNight from "../Assets/desktop/bg-image-nighttime.jpg";
 import ImageDay from "../Assets/desktop/bg-image-daytime.jpg";
 import RefreshIcon from "../Assets/desktop/icon-refresh.svg";
@@ -18,7 +20,7 @@ const worldTimeAPI = "http://worldtimeapi.org/api/ip";
 const ipGeologicalAPI = `https://api.ipbase.com/v2/info?apikey=${API_KEY_VALUE}`;
 const randomQuoteAPI = "https://api.quotable.io/random";
 
-const MainSection = () => {
+const MainSection = (props) => {
   const [currentTime, setCurrentTime] = useState();
   const [timeZoneCode, setTimeZoneCode] = useState();
   const [userLocation, setUserLocaiton] = useState();
@@ -26,6 +28,7 @@ const MainSection = () => {
   const [quote, setQuote] = useState();
   const [author, setAuthor] = useState();
   const [userWidth, setUserWidth] = useState(window.innerWidth);
+  const [isHidden, setIsHidden] = useState(false);
 
   const updateMedia = () => {
     setUserWidth(window.innerWidth);
@@ -97,6 +100,12 @@ const MainSection = () => {
     window.location.reload(true);
   };
 
+  const isHiddenHandler = () => {
+    setIsHidden((prev) => (!prev ? true : false));
+    console.log("clicked");
+    console.log(isHidden);
+  };
+
   return (
     <main>
       <section>
@@ -127,10 +136,12 @@ const MainSection = () => {
           </div>
           <div className={classes["user-location__wrapper"]}>
             <div className={classes["user-location"]}>{userLocation}</div>
-            <ButtonExpand></ButtonExpand>
+            {!isHidden && <ButtonExpand onClick={isHiddenHandler} />}
+            {isHidden && <ButtonLess onClick={isHiddenHandler} />}
           </div>
         </div>
       </section>
+      {isHidden && <FooterCard />}
     </main>
   );
 };
