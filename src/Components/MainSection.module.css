@@ -165,11 +165,6 @@
   .time-zone {
     font-size: 3.2rem;
   }
-
-  .daytime-image,
-  .daytime {
-    margin-top: 15.3rem;
-  }
 }
 
 @media screen and (min-width: 992px) {
