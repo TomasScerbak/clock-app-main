@@ -5,6 +5,10 @@ html {
   font-size: 62.5%;
 }
 
+#root {
+  height: 100vh;
+}
+
 *,
 *::before,
 *::after {

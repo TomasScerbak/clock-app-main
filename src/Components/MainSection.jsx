@@ -76,15 +76,15 @@ const MainSection = (props) => {
     [userWidth, hour]
   );
 
-  // useEffect(
-  //   () =>
-  //     async function () {
-  //       const { data } = await axios.get(ipGeologicalAPI);
-  //       const userLocation = data.data.timezone.id;
-  //       setUserLocaiton(userLocation);
-  //     },
-  //   []
-  // );
+  useEffect(
+    () =>
+      async function () {
+        const { data } = await axios.get(ipGeologicalAPI);
+        const userLocation = data.data.timezone.id;
+        setUserLocaiton(userLocation);
+      },
+    []
+  );
 
   useEffect(
     () =>
@@ -108,16 +108,18 @@ const MainSection = (props) => {
     <main>
       <section>
         <div className={classes.container}>
-          <div className={classes["quote-wrapper"]}>
-            <p className={classes.quote}>"{quote}"</p>
-            <img
-              onClick={quoteChangeHandler}
-              className={classes["refresh-icon"]}
-              src={RefreshIcon}
-              alt="refresh button"
-            />
-          </div>
-          <div className={classes.author}>{author}</div>
+          {!isHidden && (
+            <div className={classes["quote-wrapper"]}>
+              <p className={classes.quote}>"{quote}"</p>
+              <img
+                onClick={quoteChangeHandler}
+                className={classes["refresh-icon"]}
+                src={RefreshIcon}
+                alt="refresh button"
+              />
+            </div>
+          )}
+          {!isHidden && <div className={classes.author}>{author}</div>}
           <div className={classes.greeting}>
             <img
               className={classes["daytime-image"]}
