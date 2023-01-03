@@ -3,7 +3,8 @@ import React, { useEffect, useState } from "react";
 
 import ButtonExpand from "./UI/ButtonExpand";
 import ButtonLess from "./UI/ButtonLess";
-import FooterCard from "./FooterCard";
+import FooterCardDay from "./FooterCardDay";
+import FooterCardNight from "./FooterCardNight";
 
 import classes from "./MainSection.module.css";
 
@@ -30,6 +31,7 @@ const MainSection = (props) => {
   const [userWidth, setUserWidth] = useState(window.innerWidth);
   const [isHidden, setIsHidden] = useState(false);
 
+  // Getting user width and storing it into state
   const updateMedia = () => {
     setUserWidth(window.innerWidth);
   };
@@ -140,7 +142,8 @@ const MainSection = (props) => {
             {isHidden && <ButtonLess onClick={isHiddenHandler} />}
           </div>
         </div>
-        {isHidden && <FooterCard />}
+        {isHidden && hour < 18 ? <FooterCardDay /> : ""}
+        {isHidden && hour > 18 ? <FooterCardNight /> : ""}
       </section>
     </main>
   );
