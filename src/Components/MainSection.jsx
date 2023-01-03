@@ -140,8 +140,8 @@ const MainSection = (props) => {
             {isHidden && <ButtonLess onClick={isHiddenHandler} />}
           </div>
         </div>
+        {isHidden && <FooterCard />}
       </section>
-      {isHidden && <FooterCard />}
     </main>
   );
 };
