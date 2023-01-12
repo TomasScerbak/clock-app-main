@@ -31,7 +31,7 @@ const MainSection = (props) => {
   const [userWidth, setUserWidth] = useState(window.innerWidth);
   const [isHidden, setIsHidden] = useState(false);
 
-  // Getting user width and storing it into state
+  // Getting user width and storing it into state to determine text according user screen width
   const updateMedia = () => {
     setUserWidth(window.innerWidth);
   };
