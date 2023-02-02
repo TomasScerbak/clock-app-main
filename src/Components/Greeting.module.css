@@ -1,0 +1,41 @@
+.greeting {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 2.5rem;
+}
+
+.daytime-image {
+  width: 2.3rem;
+  height: 2.3rem;
+  margin-right: 1.6rem;
+  margin-top: 4rem;
+}
+
+.daytime {
+  color: white;
+  font-size: 15px;
+  margin-top: 4rem;
+}
+
+@media screen and (min-width: 576px) {
+  .greeting {
+    margin: 0 0 0 6.5rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .greeting {
+    margin: 0 0 0 16.5rem;
+  }
+
+  .daytime {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .daytime {
+    font-size: 20px;
+  }
+}

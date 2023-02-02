@@ -7,6 +7,7 @@ import ButtonLess from "./UI/ButtonLess";
 import FooterCardDay from "./FooterCardDay";
 import FooterCardNight from "./FooterCardNight";
 import Quote from "./Quote";
+import Greeting from "./Greeting";
 
 //CSS
 import classes from "./MainSection.module.css";
@@ -14,8 +15,6 @@ import classes from "./MainSection.module.css";
 // Images
 import ImageNight from "../Assets/desktop/bg-image-nighttime.jpg";
 import ImageDay from "../Assets/desktop/bg-image-daytime.jpg";
-import Sun from "../Assets/desktop/icon-sun.svg";
-import Moon from "../Assets/desktop/icon-moon.svg";
 
 const API_KEY_VALUE = process.env.REACT_APP_API_KEY_VALUE.substring(1, 41);
 
@@ -27,18 +26,7 @@ const MainSection = () => {
   const [timeZoneCode, setTimeZoneCode] = useState();
   const [userLocation, setUserLocaiton] = useState();
   const [hour, setHour] = useState();
-  const [userWidth, setUserWidth] = useState(window.innerWidth);
   const [isHidden, setIsHidden] = useState(false);
-
-  // Getting user width and storing it into state to determine text according user screen width
-  const updateMedia = () => {
-    setUserWidth(window.innerWidth);
-  };
-
-  useEffect(() => {
-    window.addEventListener("resize", updateMedia);
-    return () => window.removeEventListener("resize", updateMedia);
-  });
 
   useEffect(
     () =>
@@ -49,24 +37,6 @@ const MainSection = () => {
         const hours = date.getHours();
         const minutes = date.getMinutes();
 
-        if (hours > 18) {
-          document.body.style.backgroundImage = `url(${ImageNight})`;
-        } else if (hours < 18) {
-          document.body.style.backgroundImage = `url(${ImageDay})`;
-        }
-
-        if (userWidth < 576 && hours < 18) {
-          document.getElementById("daytime").innerHTML = "Good Morning";
-        } else if (userWidth > 576 && hours < 18) {
-          document.getElementById("daytime").innerHTML =
-            "Good Morning It's currently";
-        } else if (userWidth < 576 && hours > 18) {
-          document.getElementById("daytime").innerHTML = "Good evening";
-        } else if (userWidth > 576 && hours > 18) {
-          document.getElementById("daytime").innerHTML =
-            "Good evening It's currently";
-        }
-
         setCurrentTime(
           `${hours} : ${minutes < 10 ? `${"0" + minutes}` : minutes}`
         );
@@ -74,7 +44,7 @@ const MainSection = () => {
 
         setHour(hours);
       },
-    [userWidth, hour]
+    [hour]
   );
 
   // useEffect(
@@ -96,7 +66,8 @@ const MainSection = () => {
       <section>
         <div className={classes.container}>
           {!isHidden && <Quote />}
-          <div className={classes.greeting}>
+          <Greeting />
+          {/* <div className={classes.greeting}>
             <img
               className={classes["daytime-image"]}
               src={hour < 18 ? Sun : Moon}
@@ -105,7 +76,7 @@ const MainSection = () => {
             <h3 id="daytime" className={classes.daytime}>
               Good Morning
             </h3>
-          </div>
+          </div> */}
           <div className={classes["clock-time__wrapper"]}>
             <h1 className={classes["current-time"]}>{currentTime}</h1>
             <div className={classes["time-zone"]}>{timeZoneCode}</div>
