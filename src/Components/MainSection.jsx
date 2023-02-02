@@ -8,6 +8,7 @@ import FooterCardDay from "./FooterCardDay";
 import FooterCardNight from "./FooterCardNight";
 import Quote from "./Quote";
 import Greeting from "./Greeting";
+import Clock from "./Clock";
 
 //CSS
 import classes from "./MainSection.module.css";
@@ -22,8 +23,6 @@ const worldTimeAPI = "http://worldtimeapi.org/api/ip";
 const ipGeologicalAPI = `https://api.ipbase.com/v2/info?apikey=${API_KEY_VALUE}`;
 
 const MainSection = () => {
-  const [currentTime, setCurrentTime] = useState();
-  const [timeZoneCode, setTimeZoneCode] = useState();
   const [userLocation, setUserLocaiton] = useState();
   const [hour, setHour] = useState();
   const [isHidden, setIsHidden] = useState(false);
@@ -33,14 +32,13 @@ const MainSection = () => {
       async function () {
         const { data } = await axios.get(worldTimeAPI);
         const date = new Date(data.datetime);
-        const timeZoneCode = data.abbreviation;
         const hours = date.getHours();
-        const minutes = date.getMinutes();
 
-        setCurrentTime(
-          `${hours} : ${minutes < 10 ? `${"0" + minutes}` : minutes}`
-        );
-        setTimeZoneCode(timeZoneCode);
+        if (hours > 18) {
+          document.body.style.backgroundImage = `url(${ImageNight})`;
+        } else if (hours < 18) {
+          document.body.style.backgroundImage = `url(${ImageDay})`;
+        }
 
         setHour(hours);
       },
@@ -67,20 +65,7 @@ const MainSection = () => {
         <div className={classes.container}>
           {!isHidden && <Quote />}
           <Greeting />
-          {/* <div className={classes.greeting}>
-            <img
-              className={classes["daytime-image"]}
-              src={hour < 18 ? Sun : Moon}
-              alt="#"
-            />
-            <h3 id="daytime" className={classes.daytime}>
-              Good Morning
-            </h3>
-          </div> */}
-          <div className={classes["clock-time__wrapper"]}>
-            <h1 className={classes["current-time"]}>{currentTime}</h1>
-            <div className={classes["time-zone"]}>{timeZoneCode}</div>
-          </div>
+          <Clock />
           <div className={classes["user-location__wrapper"]}>
             <div className={classes["user-location"]}>{userLocation}</div>
             {!isHidden && <ButtonExpand onClick={isHiddenHandler} />}

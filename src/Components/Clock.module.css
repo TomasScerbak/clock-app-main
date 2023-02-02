@@ -1,0 +1,51 @@
+.clock-time__wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  margin: 0 2.5rem;
+}
+
+.current-time {
+  color: white;
+  margin: 1.6rem 2rem 0 0;
+  font-size: 10rem;
+}
+
+.time-zone {
+  color: white;
+  font-weight: 300;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 576px) {
+  .clock-time__wrapper {
+    margin: 0 0 0 6.5rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .current-time {
+    font-size: 17.5rem;
+  }
+
+  .time-zone {
+    font-size: 3.2rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .clock-time__wrapper {
+    margin: 0 0 0 16.5rem;
+  }
+
+  .time-zone {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .current-time {
+    font-size: 20rem;
+  }
+}
