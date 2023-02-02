@@ -80,15 +80,15 @@ const MainSection = () => {
     [userWidth, hour]
   );
 
-  useEffect(
-    () =>
-      async function () {
-        const { data } = await axios.get(ipGeologicalAPI);
-        const userLocation = data.data.timezone.id;
-        setUserLocaiton(userLocation);
-      },
-    [userLocation]
-  );
+  // useEffect(
+  //   () =>
+  //     async function () {
+  //       const { data } = await axios.get(ipGeologicalAPI);
+  //       const userLocation = data.data.timezone.id;
+  //       setUserLocaiton(userLocation);
+  //     },
+  //   [userLocation]
+  // );
 
   useEffect(
     () =>
