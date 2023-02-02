@@ -87,7 +87,7 @@ const MainSection = () => {
         const userLocation = data.data.timezone.id;
         setUserLocaiton(userLocation);
       },
-    []
+    [userLocation]
   );
 
   useEffect(
