@@ -6,6 +6,7 @@ import ButtonExpand from "./UI/ButtonExpand";
 import ButtonLess from "./UI/ButtonLess";
 import FooterCardDay from "./FooterCardDay";
 import FooterCardNight from "./FooterCardNight";
+import Quote from "./Quote";
 
 //CSS
 import classes from "./MainSection.module.css";
@@ -13,7 +14,6 @@ import classes from "./MainSection.module.css";
 // Images
 import ImageNight from "../Assets/desktop/bg-image-nighttime.jpg";
 import ImageDay from "../Assets/desktop/bg-image-daytime.jpg";
-import RefreshIcon from "../Assets/desktop/icon-refresh.svg";
 import Sun from "../Assets/desktop/icon-sun.svg";
 import Moon from "../Assets/desktop/icon-moon.svg";
 
@@ -21,15 +21,12 @@ const API_KEY_VALUE = process.env.REACT_APP_API_KEY_VALUE.substring(1, 41);
 
 const worldTimeAPI = "http://worldtimeapi.org/api/ip";
 const ipGeologicalAPI = `https://api.ipbase.com/v2/info?apikey=${API_KEY_VALUE}`;
-const randomQuoteAPI = "https://api.quotable.io/random";
 
 const MainSection = () => {
   const [currentTime, setCurrentTime] = useState();
   const [timeZoneCode, setTimeZoneCode] = useState();
   const [userLocation, setUserLocaiton] = useState();
   const [hour, setHour] = useState();
-  const [quote, setQuote] = useState();
-  const [author, setAuthor] = useState();
   const [userWidth, setUserWidth] = useState(window.innerWidth);
   const [isHidden, setIsHidden] = useState(false);
 
@@ -80,29 +77,15 @@ const MainSection = () => {
     [userWidth, hour]
   );
 
-  useEffect(
-    () =>
-      async function () {
-        const { data } = await axios.get(ipGeologicalAPI);
-        const userLocation = data.data.timezone.id;
-        setUserLocaiton(userLocation);
-      },
-    [userLocation]
-  );
-
-  useEffect(
-    () =>
-      async function () {
-        const { data } = await axios.get(randomQuoteAPI);
-        setQuote(data.content);
-        setAuthor(data.author);
-      },
-    []
-  );
-
-  const quoteChangeHandler = () => {
-    window.location.reload(true);
-  };
+  // useEffect(
+  //   () =>
+  //     async function () {
+  //       const { data } = await axios.get(ipGeologicalAPI);
+  //       const userLocation = data.data.timezone.id;
+  //       setUserLocaiton(userLocation);
+  //     },
+  //   []
+  // );
 
   const isHiddenHandler = () => {
     setIsHidden((prev) => (!prev ? true : false));
@@ -112,18 +95,7 @@ const MainSection = () => {
     <main>
       <section>
         <div className={classes.container}>
-          {!isHidden && (
-            <div className={classes["quote-wrapper"]}>
-              <p className={classes.quote}>"{quote}"</p>
-              <img
-                onClick={quoteChangeHandler}
-                className={classes["refresh-icon"]}
-                src={RefreshIcon}
-                alt="refresh button"
-              />
-            </div>
-          )}
-          {!isHidden && <div className={classes.author}>{author}</div>}
+          {!isHidden && <Quote />}
           <div className={classes.greeting}>
             <img
               className={classes["daytime-image"]}
