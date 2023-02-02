@@ -1,11 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
+//Components
 import ButtonExpand from "./UI/ButtonExpand";
 import ButtonLess from "./UI/ButtonLess";
 import FooterCardDay from "./FooterCardDay";
 import FooterCardNight from "./FooterCardNight";
 
+//CSS
 import classes from "./MainSection.module.css";
 
 // Images
@@ -21,7 +23,7 @@ const worldTimeAPI = "http://worldtimeapi.org/api/ip";
 const ipGeologicalAPI = `https://api.ipbase.com/v2/info?apikey=${API_KEY_VALUE}`;
 const randomQuoteAPI = "https://api.quotable.io/random";
 
-const MainSection = (props) => {
+const MainSection = () => {
   const [currentTime, setCurrentTime] = useState();
   const [timeZoneCode, setTimeZoneCode] = useState();
   const [userLocation, setUserLocaiton] = useState();
