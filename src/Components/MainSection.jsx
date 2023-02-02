@@ -84,7 +84,6 @@ const MainSection = () => {
     () =>
       async function () {
         const { data } = await axios.get(ipGeologicalAPI);
-        console.log(ipGeologicalAPI);
         const userLocation = data.data.timezone.id;
         setUserLocaiton(userLocation);
       },

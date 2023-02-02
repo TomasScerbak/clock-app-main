@@ -21,8 +21,8 @@
 }
 
 .arrow-up {
-  width: 3.2rem;
-  height: 3.2rem;
+  width: 5.2rem;
+  height: 5.2rem;
   background-color: #303030;
   color: white;
   border-radius: 100%;
@@ -42,7 +42,6 @@
     background-color: #303030;
     color: white;
     border-radius: 100%;
-    padding: 1rem;
     margin-left: 1rem;
   }
 }
