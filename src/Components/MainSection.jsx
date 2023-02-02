@@ -17,7 +17,7 @@ import RefreshIcon from "../Assets/desktop/icon-refresh.svg";
 import Sun from "../Assets/desktop/icon-sun.svg";
 import Moon from "../Assets/desktop/icon-moon.svg";
 
-const API_KEY_VALUE = REACT_APP_API_KEY_VALUE.substring(1, 41);
+const API_KEY_VALUE = process.env.REACT_APP_API_KEY_VALUE.substring(1, 41);
 
 const worldTimeAPI = "http://worldtimeapi.org/api/ip";
 const ipGeologicalAPI = `https://api.ipbase.com/v2/info?apikey=${API_KEY_VALUE}`;
@@ -80,15 +80,16 @@ const MainSection = () => {
     [userWidth, hour]
   );
 
-  // useEffect(
-  //   () =>
-  //     async function () {
-  //       const { data } = await axios.get(ipGeologicalAPI);
-  //       const userLocation = data.data.timezone.id;
-  //       setUserLocaiton(userLocation);
-  //     },
-  //   [userLocation]
-  // );
+  useEffect(
+    () =>
+      async function () {
+        const { data } = await axios.get(ipGeologicalAPI);
+        console.log(ipGeologicalAPI);
+        const userLocation = data.data.timezone.id;
+        setUserLocaiton(userLocation);
+      },
+    [userLocation]
+  );
 
   useEffect(
     () =>

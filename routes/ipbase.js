@@ -3,9 +3,9 @@ const router = express.Router();
 const needle = require("needle");
 
 // Env vars
-const API_BASE_URL = REACT_APP_API_BASE_URL;
-const API_KEY_NAME = REACT_APP_API_KEY_NAME;
-const API_KEY_VALUE = REACT_APP_API_KEY_VALUE;
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const API_KEY_NAME = process.env.REACT_APP_API_KEY_NAME;
+const API_KEY_VALUE = process.env.REACT_APP_API_KEY_VALUE;
 
 router.get("/", async (req, res) => {
   try {
