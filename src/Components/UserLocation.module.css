@@ -1,0 +1,29 @@
+.user-location {
+  color: white;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 2.8rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-align: left;
+  margin: 1.6rem 0 4.8rem 2.6rem;
+}
+
+@media screen and (min-width: 768px) {
+  .user-location {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .user-location__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 14.5rem 0 14.5rem;
+  }
+
+  .user-location {
+    font-size: 2.4rem;
+  }
+}
