@@ -14,30 +14,30 @@ const FooterCardNight = () => {
   const [dayOfWeek, setDayOfWeek] = useState();
   const [weekNumber, setWeekNumber] = useState();
 
-  useEffect(
-    () =>
-      async function () {
-        const { data } = await axios.get(worldTimeAPI);
-        const dayOfWeek = data.day_of_week;
-        const dayOfYear = data.day_of_year;
-        const weekNumber = data.week_number;
+  // useEffect(
+  //   () =>
+  //     async function () {
+  //       const { data } = await axios.get(worldTimeAPI);
+  //       const dayOfWeek = data.day_of_week;
+  //       const dayOfYear = data.day_of_year;
+  //       const weekNumber = data.week_number;
 
-        setDayOfWeek(dayOfWeek);
-        setDayOfYear(dayOfYear);
-        setWeekNumber(weekNumber);
-      },
-    []
-  );
+  //       setDayOfWeek(dayOfWeek);
+  //       setDayOfYear(dayOfYear);
+  //       setWeekNumber(weekNumber);
+  //     },
+  //   []
+  // );
 
-  useEffect(
-    () =>
-      async function () {
-        const { data } = await axios.get(ipGeologicalAPI);
-        const userLocation = data.data.timezone.id;
-        setUserLocaiton(userLocation);
-      },
-    []
-  );
+  // useEffect(
+  //   () =>
+  //     async function () {
+  //       const { data } = await axios.get(ipGeologicalAPI);
+  //       const userLocation = data.data.timezone.id;
+  //       setUserLocaiton(userLocation);
+  //     },
+  //   []
+  // );
 
   return (
     <section>
