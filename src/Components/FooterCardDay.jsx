@@ -1,12 +1,9 @@
-import axios from "axios";
 import React, { useState, useEffect } from "react";
 
+import { IPGeologicalAPI } from "../Services/APIs/IPGeologicalAPI";
+import { WorldTimeAPI } from "../Services/APIs/WorldTimeAPI";
+
 import classes from "../Components/FooterCardDay.module.css";
-
-const API_KEY_VALUE = process.env.REACT_APP_API_KEY_VALUE.substring(1, 41);
-
-const worldTimeAPI = "http://worldtimeapi.org/api/ip";
-const ipGeologicalAPI = `https://api.ipbase.com/v2/info?apikey=${API_KEY_VALUE}`;
 
 const FooterCardDay = () => {
   const [userLocation, setUserLocaiton] = useState();
@@ -14,30 +11,24 @@ const FooterCardDay = () => {
   const [dayOfWeek, setDayOfWeek] = useState();
   const [weekNumber, setWeekNumber] = useState();
 
-  // useEffect(
-  //   () =>
-  //     async function () {
-  //       const { data } = await axios.get(worldTimeAPI);
-  //       const dayOfWeek = data.day_of_week;
-  //       const dayOfYear = data.day_of_year;
-  //       const weekNumber = data.week_number;
+  useEffect(() => {
+    WorldTimeAPI().then((data) => {
+      const dayOfWeek = data.day_of_week;
+      const dayOfYear = data.day_of_year;
+      const weekNumber = data.week_number;
 
-  //       setDayOfWeek(dayOfWeek);
-  //       setDayOfYear(dayOfYear);
-  //       setWeekNumber(weekNumber);
-  //     },
-  //   []
-  // );
+      setDayOfWeek(dayOfWeek);
+      setDayOfYear(dayOfYear);
+      setWeekNumber(weekNumber);
+    });
+  }, []);
 
-  // useEffect(
-  //   () =>
-  //     async function () {
-  //       const { data } = await axios.get(ipGeologicalAPI);
-  //       const userLocation = data.data.timezone.id;
-  //       setUserLocaiton(userLocation);
-  //     },
-  //   []
-  // );
+  useEffect(() => {
+    IPGeologicalAPI().then((data) => {
+      const userLocation = data.data.timezone.id;
+      setUserLocaiton(userLocation);
+    });
+  }, []);
 
   return (
     <section>

@@ -23,7 +23,7 @@ import ImageDay from "../Assets/desktop/bg-image-daytime.jpg";
 const MainSection = () => {
   const [hour, setHour] = useState();
   const [userLocation, setUserLocaiton] = useState();
-  const [isHidden, setIsHidden] = useState(true);
+  const [isHidden, setIsHidden] = useState(false);
 
   useEffect(() => {
     WorldTimeAPI().then((data) => {
@@ -40,12 +40,12 @@ const MainSection = () => {
     });
   }, [hour]);
 
-  // useEffect(() => {
-  //   IPGeologicalAPI().then((data) => {
-  //     const userLocation = data.data.timezone.id;
-  //     setUserLocaiton(userLocation);
-  //   });
-  // }, []);
+  useEffect(() => {
+    IPGeologicalAPI().then((data) => {
+      const userLocation = data.data.timezone.id;
+      setUserLocaiton(userLocation);
+    });
+  }, []);
 
   const isHiddenHandler = () => {
     setIsHidden((prev) => (!prev ? true : false));
