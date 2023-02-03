@@ -1,71 +1,3 @@
-/* Quote Section */
-.quote-wrapper {
-  display: flex;
-  max-width: 32.4rem;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin: 3.1rem 2.5rem 0.8rem;
-  text-align: left;
-}
-
-.quote {
-  color: white;
-}
-
-.author {
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: white;
-  text-align: left;
-  margin: 0 2.5rem 15.7rem;
-}
-
-.refresh-icon {
-  width: 1.6rem;
-  height: 1.6rem;
-  cursor: pointer;
-  margin: 0.2rem 0 0 1rem;
-}
-
-.refresh-icon:active {
-  transform: rotate(50deg);
-}
-
-/* Clock Section */
-.greeting {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 0 2.5rem;
-}
-
-.clock-time__wrapper {
-  display: flex;
-  justify-content: flex-start;
-  align-items: baseline;
-  margin: 0 2.5rem;
-}
-
-.time-zone {
-  color: white;
-  font-weight: 300;
-  font-size: 1.5rem;
-  text-transform: uppercase;
-}
-
-.daytime-image {
-  width: 2.3rem;
-  height: 2.3rem;
-  margin-right: 1.6rem;
-  margin-top: 4rem;
-}
-
-.current-time {
-  color: white;
-  margin: 1.6rem 2rem 0 0;
-  font-size: 10rem;
-}
-
 .user-location {
   color: white;
   font-weight: 700;
@@ -77,93 +9,16 @@
   margin: 1.6rem 0 4.8rem 2.6rem;
 }
 
-.daytime {
-  color: white;
-  font-size: 15px;
-  margin-top: 4rem;
-}
-
-/* Media Queries for Quote Section */
+/* Media queries for Container and User Location */
 @media screen and (min-width: 576px) {
-  .quote-wrapper {
-    max-width: 57.3rem;
-    margin: 8rem 13.1rem 0.8rem 6.4rem;
-  }
-
-  .author {
-    font-size: 1.8rem;
-    margin: 0 6.4rem 22.7rem;
-  }
-
-  .refresh-icon {
-    margin: 0.4rem 13.1rem 0 1rem;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  .quote-wrapper {
-    margin: 8rem 0 0.8rem 16.5rem;
-    max-width: 57.3rem;
-  }
-
-  .author {
-    font-size: 1.8rem;
-    margin: 0 6.4rem 22.7rem 16.5rem;
-  }
-
-  .refresh-icon {
-    margin: 0.4rem 13.1rem 0 1rem;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .quote-wrapper {
-    margin: 20.6rem 0 0.8rem 16.5rem;
-    max-width: 57.3rem;
-  }
-
-  .author {
-    font-size: 2.5rem;
-    margin: 0 6.4rem 22.7rem 16.5rem;
-  }
-
-  .refresh-icon {
-    width: 2rem;
-    height: 2rem;
-    margin: 0.7rem 0 0 1rem;
-  }
-
-  .greeting {
-    margin: 0 0 0 16.5rem;
-  }
-}
-
-/* Media queries for Container */
-@media screen and (min-width: 576px) {
-  .greeting {
-    margin: 0 0 0 6.5rem;
-  }
-
-  .clock-time__wrapper {
-    margin: 0 0 0 6.5rem;
-  }
-
   .user-location__wrapper {
     margin: 0 0 0 4.5rem;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .current-time {
-    font-size: 17.5rem;
-  }
-
   .user-location {
     font-size: 1.8rem;
-  }
-
-  .time-zone {
-    font-size: 3.2rem;
   }
 }
 
@@ -174,13 +29,6 @@
     align-items: flex-start;
     justify-content: center;
   }
-  .greeting {
-    margin: 0 0 0 16.5rem;
-  }
-
-  .clock-time__wrapper {
-    margin: 0 0 0 16.5rem;
-  }
 
   .user-location__wrapper {
     display: flex;
@@ -189,16 +37,8 @@
     margin: 0 14.5rem 0 14.5rem;
   }
 
-  .daytime {
-    font-size: 18px;
-  }
-
   .user-location {
     font-size: 2.4rem;
-  }
-
-  .time-zone {
-    font-size: 4rem;
   }
 }
 
@@ -206,13 +46,5 @@
   .container {
     max-width: 1440px;
     margin: auto;
-  }
-
-  .daytime {
-    font-size: 20px;
-  }
-
-  .current-time {
-    font-size: 20rem;
   }
 }
