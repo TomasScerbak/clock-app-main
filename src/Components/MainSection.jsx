@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-// APIs
 import { WorldTimeAPI } from "../Services/APIs/WorldTimeAPI";
 import { IPGeologicalAPI } from "../Services/APIs/IPGeologicalAPI";
 
-//Components
 import ButtonExpand from "./UI/ButtonExpand";
 import ButtonLess from "./UI/ButtonLess";
 import FooterCardDay from "./FooterCardDay";
@@ -13,10 +11,8 @@ import Quote from "./Quote";
 import Greeting from "./Greeting";
 import Clock from "./Clock";
 
-//CSS
 import classes from "./MainSection.module.css";
 
-// Images
 import ImageNight from "../Assets/desktop/bg-image-nighttime.jpg";
 import ImageDay from "../Assets/desktop/bg-image-daytime.jpg";
 
@@ -49,7 +45,6 @@ const MainSection = () => {
 
   const isHiddenHandler = () => {
     setIsHidden((prev) => (!prev ? true : false));
-    console.log(isHidden);
   };
 
   return (
