@@ -37,7 +37,8 @@
   .card {
     grid-template-columns: repeat(2, 1fr);
     align-content: flex-start;
-    padding: 11.9rem 16.6rem 11.9rem 6.4rem;
+    padding-left: 6rem;
+    height: 40vh;
   }
 
   .card-wrapper {
@@ -66,7 +67,7 @@
 
 @media screen and (min-width: 992px) {
   .card {
-    padding: 11.9rem 16.6rem 11.9rem 15.4rem;
+    padding-left: 12rem;
   }
   .title {
     font-size: 1.5rem;
@@ -80,7 +81,7 @@
 
 @media screen and (min-width: 1440px) {
   .card {
-    padding: 7.4rem 43.1rem 7.4rem 16.5rem;
+    padding-left: 60rem;
   }
 
   .card-wrapper {
